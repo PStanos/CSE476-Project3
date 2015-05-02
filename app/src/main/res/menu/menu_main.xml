@@ -1,6 +1,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
-    <item android:id="@+id/action_settings" android:title="@string/action_settings"
+    <item android:id="@+id/color_black" android:title="@string/black"
         android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/color_white" android:title="@string/white"
+        android:orderInCategory="101" app:showAsAction="never" />
+    <item android:id="@+id/color_red" android:title="@string/red"
+        android:orderInCategory="102" app:showAsAction="never" />
+    <item android:id="@+id/color_green" android:title="@string/green"
+        android:orderInCategory="103" app:showAsAction="never" />
+    <item android:id="@+id/color_blue" android:title="@string/blue"
+        android:orderInCategory="104" app:showAsAction="never" />
+    <item android:id="@+id/send_picture" android:title="@string/send_picture"
+        android:orderInCategory="104" app:showAsAction="never" />
 </menu>
