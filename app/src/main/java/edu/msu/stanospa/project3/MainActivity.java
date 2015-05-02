@@ -149,6 +149,11 @@ public class MainActivity extends ActionBarActivity {
         float distanceWid[] = new float[1];
         Location.distanceBetween(topLeftLat, topLeftLon, topLeftLat, longitude, distanceWid);
 
+        if(hit == 0.0 && wid == 0.0) {
+            delay();
+            return;
+        }
+
         float x = distanceWid[0]/wid;
         float y = distanceHit[0]/hit;
 

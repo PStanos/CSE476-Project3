@@ -27,8 +27,41 @@ public class DrawView extends View {
             this.paint = currentPaint;
         }
 
-        public void onDraw(Canvas canvas) {
-            canvas.drawCircle(x, y, radius, paint);
+        public void onDraw(Canvas canvas, DrawPoint prev) {
+            if(prev != null) {
+                canvas.drawCircle(x, y, radius, paint);
+
+                if(x == prev.getX() && y == prev.getY()) {
+                    return;
+                }
+
+                float angle = -90.0f + (float)Math.toDegrees(Math.atan2(y - prev.getY(), x - prev.getX()));
+
+                canvas.save();
+                canvas.translate(prev.getX(), prev.getY());
+                canvas.rotate(angle);
+                canvas.translate(-radius, 0.0f);
+                canvas.drawRect(0.0f, 0.0f, radius * 2.0f, (float)Math.sqrt(Math.pow(x - prev.getX(), 2.0f) + Math.pow(y - prev.getY(), 2.0f)), paint);
+                canvas.restore();
+
+                canvas.drawCircle(prev.getX(), prev.getY(), prev.getRadius(), prev.getPaint());
+            }
+        }
+
+        public float getX() {
+            return x;
+        }
+
+        public float getY() {
+            return y;
+        }
+
+        public float getRadius() {
+            return radius;
+        }
+
+        public Paint getPaint() {
+            return paint;
         }
 
         private float x;
@@ -90,8 +123,10 @@ public class DrawView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
+        DrawPoint prev = null;
         for(DrawPoint drawPoint : points) {
-            drawPoint.onDraw(canvas);
+            drawPoint.onDraw(canvas, prev);
+            prev = drawPoint;
         }
     }
 
