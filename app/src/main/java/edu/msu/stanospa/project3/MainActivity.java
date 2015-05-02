@@ -102,7 +102,7 @@ public class MainActivity extends ActionBarActivity {
                 return true;
             case R.id.send_picture:
                 ViewSender sender = new ViewSender();
-                sender.sendView(this,  drawView, "CanvasDrawing");
+                sender.sendView(this,  drawView, "Caravaggio");
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
