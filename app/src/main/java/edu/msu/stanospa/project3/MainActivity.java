@@ -22,7 +22,7 @@ public class MainActivity extends ActionBarActivity {
 
     private static float A = 0.95f;
     private static float MAX_Y = 9.5f;
-    private static float MIN_Y = 0f;
+    private static float MIN_Y = 0.1f;
     private static int DELAY = 50;
     private DrawView drawView;
 
@@ -55,8 +55,8 @@ public class MainActivity extends ActionBarActivity {
             if(y > MAX_Y)
                 y = MAX_Y;
             if(y < MIN_Y)
-                y = MIN_Y;
-            radius = y / MAX_Y;
+                y = 0f;
+            radius = 1 - y / MAX_Y;
         }
     }
 
