@@ -1,6 +1,7 @@
 package edu.msu.stanospa.project3;
 
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -43,6 +44,7 @@ public class MainActivity extends ActionBarActivity {
         }
 
         executeOnDelay();
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
     }
 
     private class AccelListener implements SensorEventListener {
