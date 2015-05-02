@@ -61,7 +61,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void executeOnDelay() {
-        drawView.addPoint(0,0,radius);
+        drawView.addPoint(0.5f,0.5f,radius);
         delay();
     }
 
@@ -83,9 +83,6 @@ public class MainActivity extends ActionBarActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
 
         switch (item.getItemId()) {
             case R.id.color_black:
@@ -104,7 +101,8 @@ public class MainActivity extends ActionBarActivity {
                 drawView.setPaintColor(DrawView.PaintColor.Blue);
                 return true;
             case R.id.send_picture:
-
+                ViewSender sender = new ViewSender();
+                sender.sendView(this,  drawView, "CanvasDrawing");
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

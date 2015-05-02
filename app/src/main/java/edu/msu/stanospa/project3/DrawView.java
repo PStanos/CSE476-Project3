@@ -97,6 +97,7 @@ public class DrawView extends View {
 
     public void addPoint(float scaledX, float scaledY, float scaledRadius) {
         points.add(new DrawPoint(scaledX * this.getWidth(), scaledY * this.getHeight(), scaledRadius * DrawPoint.MAX_RADIUS, currentPaint));
+        invalidate();
     }
 
     public void setPaintColor(PaintColor chosenColor) {
